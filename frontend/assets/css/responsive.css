@@ -1,0 +1,130 @@
+/* ============================= */
+/* RESPONSIVE DESIGN - CONTACT PAGE */
+/* ============================= */
+
+/* Pour les écrans en dessous de 1024px */
+@media screen and (max-width: 1024px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 30px 10px;
+    }
+
+    .contact-form-section,
+    .contact-info,
+    .map-section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .contact-banner h1 {
+        font-size: 3rem;
+    }
+
+    .map-section{
+        margin-top: 0;
+    }
+
+    .contact-form-section {
+        height: 100%;
+    }
+}
+
+/* Pour les écrans en dessous de 800px (tablettes et mobiles) */
+@media screen and (max-width: 814px) {
+    /* .header-container {
+        flex-direction: column;
+        text-align: left;
+    } */
+
+    .logo img {
+        height: 70px;
+    }
+
+    nav ul {
+        transition: opacity 0.3s ease-in-out;
+        gap: 20px;
+    }
+
+    nav ul li {
+        margin: 1rem 0; /* Espacement entre chaque lien */
+    }
+
+    .hamburger {
+        position: relative;
+        z-index: 10000; /* Le hamburger reste au-dessus du menu */
+        cursor: pointer;
+    }
+
+    .logo {
+        z-index: 10000; /* Assurez-vous que le logo est au-dessus du menu */
+    }
+
+    .contact-banner {
+        padding: 5rem 0;
+    }
+
+    .contact-banner h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact-info h2,
+    .contact-form-section h2,
+    .map-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 8px;
+    }
+}
+
+/* Pour les écrans en dessous de 713px (tablettes et mobiles) */
+@media screen and (max-width: 713px) {
+    .contact-section{
+        margin-left: 0;
+    }
+}
+
+
+/* Pour les écrans en dessous de 480px (mobiles) */
+@media screen and (max-width: 480px) {
+    .contact-banner {
+        padding: 4rem 0;
+    }
+
+    .contact-banner h1 {
+        font-size: 2rem;
+    }
+
+    .contact-container {
+        padding: 20px 5px;
+    }
+
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .map-container iframe {
+        height: 250px;
+    }
+
+    .btn-primary {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+}
+
+
+
+/* ============================= */
+/* RESPONSIVE DESIGN - PROJECTS PAGE */
+/* ============================= */
