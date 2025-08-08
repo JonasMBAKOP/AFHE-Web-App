@@ -1,0 +1,206 @@
+/* Styles pour la page de statistiques de visites */
+.stats-container {
+    background: var(--primary-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.stats-header h1 {
+    color: var(--primary-blue);
+    font-size: 28px;
+    margin: 0;
+}
+
+.filter-form {
+    background: var(--primary-white);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 0px;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.filter-group {
+    margin-bottom: 10px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.filter-group input,
+.filter-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.stats-table th {
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-blue));
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.stats-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stats-table tr:hover {
+    background-color: rgba(30, 144, 255, 0.05);
+}
+
+.visit-count {
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+.unique-visitors {
+    font-weight: 600;
+    color: var(--primary-pink);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination a, 
+.pagination span {
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.pagination a {
+    background-color: var(--primary-white);
+    border: 1px solid var(--border-color);
+    color: var(--primary-blue);
+}
+
+.pagination a:hover {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.pagination span {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+}
+
+.empty-state i {
+    font-size: 48px;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+/* Styles pour les options d'affichage */
+.filter-toggle {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.filter-toggle:hover {
+    background: #1a7ce8;
+}
+
+.filter-options {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: var(--light-gray);
+    border-radius: 8px;
+    margin-bottom: 0;
+}
+
+.filter-options.expanded {
+    max-height: 1000px; /* Valeur suffisamment grande */
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-table {
+        display: block;
+        overflow-x: auto;
+    }
+}

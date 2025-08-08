@@ -1,0 +1,824 @@
+/* projects.css */
+/* Styles pour la page de gestion des projets */
+
+/* Header et bouton d'ajout */
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--primary-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.project-header h1 {
+    color: var(--primary-blue);
+    font-size: 28px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
+    color: var(--primary-white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.add-project-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.4);
+}
+
+/* Filtres */
+.filter-form {
+    background: var(--primary-white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.filter-form p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.filter-form label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.filter-form select,
+.filter-form input[type="date"],
+.filter-form input[type="number"] {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.filter-form select:focus,
+.filter-form input:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.1);
+}
+
+.filter-form button[type="submit"] {
+    padding: 10px 20px;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.filter-form button[type="submit"]:hover {
+    background: #1a7ce8;
+}
+
+/* Tableau */
+.project-table-container {
+    background: var(--primary-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.table-header {
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-blue));
+    color: var(--primary-white);
+    padding: 20px;
+}
+
+.table-header h2 {
+    margin: 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.projects-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.projects-table th,
+.projects-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.projects-table th {
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-blue));
+    color: var(--primary-white);
+    font-weight: 600;
+}
+
+.projects-table tr:hover {
+    background-color: var(--light-gray);
+}
+
+.project-image {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.project-image-placeholder {
+    width: 80px;
+    height: 60px;
+    background: var(--light-gray);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6C757D;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-upcoming {
+    background: rgba(108, 117, 125, 0.1);
+    color: #6C757D;
+}
+
+.status-ongoing {
+    background: rgba(30, 144, 255, 0.1);
+    color: var(--primary-blue);
+}
+
+.status-completed {
+    background: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
+}
+
+.priority-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.priority-high {
+    background: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+}
+
+.priority-medium {
+    background: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
+}
+
+.priority-low {
+    background: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
+}
+
+.project-created-by {
+    font-size: 13px;
+    color: #6c757d;
+    font-weight: 600;
+}
+
+.active-status {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.active-true {
+    background-color: var(--success-color);
+}
+
+.active-false {
+    background-color: var(--danger-color);
+}
+
+.actions-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.action-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: var(--transition);
+    color: white;
+    cursor: pointer;
+}
+
+.action-btn.view {
+    background: var(--primary-blue);
+}
+
+.action-btn.edit {
+    background: var(--warning-color);
+}
+
+.action-btn.delete {
+    background: var(--danger-color);
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    background: var(--primary-white);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.pagination a:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.pagination a.active {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filter-form p {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-form label {
+        width: 100%;
+    }
+    
+    .projects-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+
+
+/* Styles pour la page de visualisation d'un projet */
+
+.project-view-card {
+    background: var(--primary-white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.project-view-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.project-main-image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid var(--primary-blue);
+}
+
+.project-main-image-placeholder {
+    width: 300px;
+    height: 200px;
+    border-radius: 12px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--primary-blue);
+}
+
+.project-main-image-placeholder i {
+    font-size: 3rem;
+    color: #ccc;
+}
+
+.project-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.project-title {
+    font-size: 1.75rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+}
+
+.project-meta-item i {
+    min-width: 20px;
+    text-align: center;
+    color: var(--primary-pink);
+}
+
+.project-description {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-blue);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.project-section {
+    margin-bottom: 2rem;
+}
+
+.project-section h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-back {
+    background: var(--light-gray);
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.btn-back:hover {
+    background: #e0e0e0;
+}
+
+.btn-edit {
+    background: var(--primary-blue);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.btn-edit:hover {
+    background: #1a7ce8;
+}
+
+.btn-delete {
+    background: var(--danger-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.btn-delete:hover {
+    background: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-view-header {
+        flex-direction: column;
+    }
+    
+    .project-main-image,
+    .project-main-image-placeholder {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+
+
+/* Styles pour le formulaire d'ajout de projet */
+
+.project-form-container {
+    background: var(--primary-white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-form-container h1 {
+    color: var(--primary-blue);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.project-form-container h1 i {
+    color: var(--primary-pink);
+}
+
+.project-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.file-upload {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.file-upload-label {
+    display: block;
+    padding: 1.5rem;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.file-upload-label:hover {
+    border-color: var(--primary-blue);
+    background: rgba(30, 144, 255, 0.05);
+}
+
+.file-upload-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-upload-preview {
+    display: none;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.file-upload-preview img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+}
+
+.multiple-files-info {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.3);
+}
+
+.btn-cancel {
+    background: white;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-cancel:hover {
+    background: var(--danger-color);
+    color: white;
+}
+
+.error-message {
+    color: var(--danger-color);
+    background: rgba(220, 53, 69, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message i {
+    font-size: 1.2rem;
+}
+
+
+
+/* Styles pour la page de modification de projet */
+
+.update-project-card {
+    background: var(--primary-white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.update-project-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.update-project-header h2 {
+    color: var(--primary-blue);
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+.current-image-container {
+    margin-bottom: 1.5rem;
+}
+
+.current-image {
+    max-width: 300px;
+    max-height: 200px;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+}
+
+.image-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.secondary-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.secondary-image-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+}
+
+.secondary-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.delete-checkbox {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: white;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.delete-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: var(--danger-color);
+    margin-top: 5px;
+}
+
+.update-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+/* Réutilise les styles de bouton déjà définis */
+.btn-update {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-update:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .secondary-images-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .update-actions {
+        flex-direction: column;
+    }
+    
+    .btn-update, .btn-cancel {
+        width: 100%;
+    }
+}

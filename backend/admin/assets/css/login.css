@@ -1,0 +1,149 @@
+/* Styles de base */
+body {
+    margin: 0;
+    /* min-height: 100vh; */
+    font-family: "Calibri Light", sans-serif;
+    background-color: rgba(255, 105, 180, 0.1);
+}
+
+.login-container {
+    width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: rgba(30, 144, 255, 0.2);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #1E90FF;
+    font-size: 30px;
+}
+
+.error-message {
+    color: #FF0000;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #333333;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #1E90FF;
+}
+
+.password-container i:hover {
+    color: #FF69B4;
+}
+
+.login-button {
+    background-color: #FF69B4;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #1E90FF;
+}
+
+.cancel-button {
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+/* ===================
+   Responsive styles 
+   =================== */
+
+/* Pour les tablettes et petits écrans */
+/* @media only screen and (max-width: 768px) {
+    .login-container {
+        width: 80%;
+        margin: 50px auto;
+        padding: 25px;
+    }
+    
+    h2 {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+    
+    input {
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    .login-button {
+        font-size: 16px;
+        padding: 10px;
+    }
+} */
+
+
+/* Pour les mobiles */
+@media only screen and (max-width: 480px) {
+    .login-container {
+        width: 80%;
+        margin: 25% auto;
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 25px;
+    }
+    
+    label {
+        font-size: 15px;
+    }
+
+    input {
+        font-size: 15px;
+        padding: 8px;
+    }
+}
