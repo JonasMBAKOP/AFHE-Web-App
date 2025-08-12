@@ -1,0 +1,16 @@
+Un administrateur est caractérisé par son Identifiant, son username, son password (hashed), son téléphone, son role (admin/super-admin), son email, sa photo de profil
+
+Une activité est caractérisée par son identifiant, son titre, sa description, son image.
+
+Un catégorie d'activités est caractérisée par son identifiant, son nom, sa description
+
+Un projet est caractérisé par son identifiant, son titre, sa description, son statut (en cours/ futur), son image
+
+Un message envoyé par l'internaute est caractérisé par l'identifiant de l'internaute, son nom, son email, l'objet du message, le message, date d'envoi
+
+Les statistiques du site sont caractérisés par l'identifiant, le nom de la page visitée, le nombre de visite de cette page, date de visite
+
+
+Un administrateur gérer (créer, modifier, supprimer et lister) une ou plusieurs activités
+
+Chaque activité appartient à une et une seule catégorie.

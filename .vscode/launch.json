@@ -1,0 +1,58 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
+
+
+
+Créer et gérer un dépôt directement sur GitHub
+Suivez ces étapes pour héberger votre projet AFHE sans installer Git en local :
+
+1. Créer un nouveau dépôt
+- Allez sur https://github.com et connectez-vous.
+- Cliquez sur l’icône + (en haut à droite) → New repository.
+- Renseignez :
+- Repository name : AFHE
+- Description (facultatif)
+- Choisissez Public ou Private selon vos besoins
+- Cliquez sur Create repository.
+
+2. Importer vos fichiers via l’interface web
+- Sur la page du dépôt, cliquez sur Add file → Upload files.
+- Glissez-déposez vos fichiers et dossiers de projet ou utilisez choose your files.
+- Vérifiez la liste des fichiers, puis en bas :
+- Commit message : Initial upload
+- Cliquez sur Commit changes.
+
+3. Créer ou modifier des fichiers directement en ligne
+- Pour ajouter un nouveau fichier sans passer par votre poste :
+- Add file → Create new file
+- Donnez un nom (ex. index.php), rédigez votre code dans l’éditeur
+- Renseignez le Commit message, puis Commit new file
+- Pour modifier un fichier existant :
+- Ouvrez-le, cliquez sur l’icône du crayon, éditez, puis Commit changes.
+
+4. Options avancées
+- Importer un dépôt existant depuis une autre URL :
+- Rendez-vous sur https://github.com/new/import
+- Utiliser GitHub Codespaces pour éditer et committer dans le cloud (Git préinstallé).
+- Installer GitHub CLI (gh) et lancer :
+gh repo create mon-organisation/AFHE --public --source=.
+gh auth login
+gh repo clone mon-organisation/AFHE
+
+
+- (nécessite d’installer gh et de s’authentifier)
+Votre dépôt AFHE est prêt à l’emploi : éditez, stockez vos versions et collaborez directement depuis GitHub, sans configuration Git en local.
