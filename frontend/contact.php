@@ -50,7 +50,9 @@
             <div class="container header-container">
                 <div class="logo">
                     <a href="index.php">
-                        <img src="assets/images/logo/logo.png" alt="Logo AFHE">
+                        <div class="header-logo">
+                            <img src="assets/images/logo/logo.png" alt="Logo AFHE">
+                        </div>
                         <h1>AFHE</h1>
                     </a>
                 </div>
@@ -60,7 +62,7 @@
                         <li><a href="activities.php">Activités</a></li>
                         <li><a href="projects.php">Projets</a></li>
                         <li><a href="contact.php" class="active">Contact</a></li>
-                        <li><a href="../backend/admin/login.php" class="btn btn-accent">Admin Login</a></li>
+                        <!-- <li><a href="../backend/admin/login.php" class="btn btn-accent">Admin Login</a></li> -->
                     </ul>
                 </nav>
                 <div class="hamburger">
@@ -134,8 +136,10 @@
                         <label>Message :</label>
                         <textarea name="message" rows="10" required></textarea>
                     </div>
-                    <br><br>
+                    <br>
                     <button type="submit" class="btn btn-primary">ENVOYER</button>
+                    <div class="separator">OU</div>
+                    <a href="https://wa.me/237699949198" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i>Contactez-nous via WhatsApp</a>
                 </form>
             </section>
 

@@ -14,6 +14,16 @@
             return $this->executeQuery($query, $params);
         }
 
+        // 🔹 Ajout d'un témoignage avec gestion de l’image par un utilisateur lambda
+        public function addTestimonial($name, $position, $company, $content, $imageFile, $rating, $active) {
+            $image_path = $this->uploadImage($imageFile, $name);
+
+            $query = "INSERT INTO testimonials (name, position, company, content, image_path, rating, active) 
+                    VALUES (:name, :position, :company, :content, :image_path, :rating, :active)";
+            $params = compact('name', 'position', 'company', 'content', 'image_path', 'rating', 'active');
+            return $this->executeQuery($query, $params);
+        }
+
         // 🔹 Modifier un témoignage avec gestion de l’image
         // public function updateTestimonial($id, $name, $position, $company, $content, $imageFile, $rating, $display_order, $active) {
         //     // 🔹 Vérifier si une nouvelle image est envoyée

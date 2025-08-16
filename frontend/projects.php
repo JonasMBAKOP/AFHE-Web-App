@@ -68,7 +68,9 @@
             <div class="container header-container">
                 <div class="logo">
                     <a href="index.php">
-                        <img src="assets/images/logo/logo.png" alt="Logo AFHE">
+                        <div class="header-logo">
+                            <img src="assets/images/logo/logo.png" alt="Logo AFHE">
+                        </div>
                         <h1>AFHE</h1>
                     </a>
                 </div>
@@ -78,7 +80,7 @@
                         <li><a href="activities.php">Activités</a></li>
                         <li><a href="projects.php" class="active">Projets</a></li>
                         <li><a href="contact.php">Contact</a></li>
-                        <li><a href="../backend/admin/login.php" class="btn btn-accent">Admin Login</a></li>
+                        <!-- <li><a href="../backend/admin/login.php" class="btn btn-accent">Admin Login</a></li> -->
                     </ul>
                 </nav>
                 <div class="hamburger">

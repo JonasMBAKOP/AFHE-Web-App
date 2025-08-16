@@ -1,3 +1,30 @@
+<?php
+    include_once __DIR__ . '/../backend/includes/db_connect.php';
+    require_once __DIR__ . "/../backend/models/TestimonialModel.php";
+
+    $message = '';
+
+    $tm = new TestimonialModel();
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = htmlspecialchars($_POST['name']);
+        $company = htmlspecialchars($_POST['company']);
+        $content = htmlspecialchars($_POST['content']);
+        $position = htmlspecialchars($_POST['position']);
+        $rating = htmlspecialchars($_POST['rating']);
+        $imageFile = !empty($_FILES['image']['name']) ? $_FILES['image'] : null;    // 🔹 Traitement de l’image (si elle existe)
+        $active = 0;    // Pour que le témoignage ne s'affiche pas directement dans la section témoignage de la page d'accueil
+
+        // 🔹 Ajout du témoignage en BD
+        if ($tm->addTestimonial($name, $position, $company, $content, $imageFile, $rating, $active)) {
+            $message = "Témoignage envoyé avec succès !";
+        } else {
+            $message = "Erreur lors de l'envoi du témoignage.";
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -7,6 +34,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/components.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/shaneForm.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     </head>
     <body>
@@ -33,7 +61,7 @@
                         <li><a href="activities.php">Activités</a></li>
                         <li><a href="projects.php">Projets</a></li>
                         <li><a href="contact.php">Contact</a></li>
-                        <li><a href="../backend/admin/login.php" class="btn btn-accent">Admin Login</a></li>
+                        <!-- <li><a href="../backend/admin/login.php" class="btn btn-accent">Admin Login</a></li> -->
                     </ul>
                 </nav>
                 <div class="hamburger">
@@ -77,7 +105,9 @@
             <h2>Mot de la Présidente</h2>
             <hr>
             <div class="presidente-container">
-                <img src="assets/images/presidente.png" alt="Mme SOUT Marie Florence">
+                <div class="img">
+                    <img src="assets/images/presidente.jpeg" alt="Mme SOUT Marie Florence">
+                </div>
                 <div class="presidente-text">
                     <p>"Citation inspirante sur l'entrepreneuriat féminin handi et le développement..."</p>
                     <p class="nom">- Mme SOUT Marie Florence, Présidente de l'AFHE</p>
@@ -172,7 +202,7 @@
                 <?php
                     $sql    = "SELECT name, position, company, image_path, content, rating
                                 FROM testimonials
-                                WHERE active = 1
+                                WHERE active = 1 AND display_order >= 1
                                 ORDER BY display_order ASC
                                 LIMIT 8";
                     $result = $conn->query($sql);
@@ -206,6 +236,37 @@
                         echo '<p>Aucun témoignage disponible pour le moment.</p>';
                     endif;
                 ?>
+            </div>
+            <a href="#" class="btn-more">Ajouter votre témoignage</a>
+
+            <div class="new-testimonial" id="newTestimonial">
+                <?php if (!empty($message)): ?>
+                    <p><?= $message ?></p>
+                <?php endif; ?>
+
+                <form method="post" action="index.php" enctype="multipart/form-data">
+                    <h1>Votre témoignage</h1>
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" required placeholder="Ex: The King Jonas"><br><br>
+
+                    <label for="company">company</label>
+                    <input type="text" id="company" name="company" required placeholder="Ex: Kings' Empire Tech"><br><br>
+
+                    <label for="position">Poste</label>
+                    <input type="text" id="position" name="position" required placeholder="Ex: Développeur Web et Mobile"><br><br>
+                    
+                    <label for="rating">Note</label>
+                    <input type="number" id="rating" name="rating" min="1" max="5" value="5" required><br><br>
+                    
+                    <label for="content">Témoignage</label><br>
+                    <textarea id="content" name="content" rows="4" cols="50" required placeholder="Décrivez le témoignage..."></textarea><br><br>
+                    
+                    <label for="image">Photo (facultatif):</label><br>
+                    <input type="file" name="image" id="image" accept="image/*" onchange="previewImage()"><br><br>
+                    <img id="preview" src="#" alt="Prévisualisation de l'image" style="display:none; max-width: 200px;"><br><br>
+                    
+                    <input type="submit" name="Envoyer" value="Envoyer">
+                </form>
             </div>
         </section>
 

@@ -33,7 +33,7 @@
     $sortOrder = $_GET['sort_order'] ?? 'DESC';
 
     // Définir la pagination souhaitée
-    $limit = 1;
+    $limit = 8;
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $offset = ($page - 1) * $limit;
 

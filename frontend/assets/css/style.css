@@ -135,23 +135,27 @@
 }
 .presidente-container {
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     margin-top: 20px;
 }
+.img{
+    width: 50%;
+}
 .presidente img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
+    width: 100%;
+    height: 30rem;
+    border-radius: 5%;
     object-fit: cover;
 }
 .presidente-text {
+    width: 50%;
     text-align: left;
     margin-left: 18px;
     color: #333;
     font-size: 20px;
 }
-
 .nom {
     font-weight: bold;
 }
@@ -391,7 +395,7 @@
     display: flex;
     justify-content: center;
     gap: 30px;
-    /* margin-bottom: 30px; */
+    margin-bottom: 30px;
     flex-wrap: wrap;
     align-items: stretch;
 }
@@ -446,6 +450,18 @@
 }
 .testimonial-card .rating i {
     margin-right: 2px;
+}.testimonials .btn-more {
+    background-color: #1E90FF;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.testimonials .btn-more:hover {
+    background-color: #FF69B4;
 }
 
 /* Bouton d'appel à faire un don */
@@ -594,17 +610,17 @@
 /* Bannière Contact */
 .contact-banner {
     background-color: rgba(30, 144, 255, 0.1);
-    color: #1E90FF;
+    /* color: #1E90FF; */
     position: relative;
     padding: 1rem 0 4rem;
     width: 100%;
 }
 
 .section-title {
-    padding-bottom: 0.5rem;
+    /* padding-bottom: 0.5rem; */
     position: relative;
     font-size: 2rem;
-    text-align: center;
+    /* text-align: center; */
     color: #1E90FF;
 }
 
@@ -712,7 +728,7 @@
 /* Formulaire de contact */
 .contact-form-section {
     background-color: rgba(30, 144, 255, 0.2);
-    height: 105.5%;
+    height: 104.5%;
     padding: 2rem;
     max-width: 600px;
     border-radius: 10px;
@@ -764,8 +780,30 @@
     font-size: 1.2rem;
     display: block;
     width: 100%;
+    margin-bottom: 1rem;
 }
 
 .btn-primary:hover {
     background-color: #1E90FF;
+}
+
+.btn-whatsapp {
+    background-color: green;
+    color: white;
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-whatsapp:hover {
+    background-color: mediumseagreen;
+}
+
+.separator {
+    position: relative;
+    font-size: 1.2rem;
+    text-align: center;
+    color: black;
+    font-weight: 600;
 }

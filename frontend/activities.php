@@ -90,7 +90,7 @@
                         <li><a href="activities.php"  class="active">Activités</a></li>
                         <li><a href="projects.php">Projets</a></li>
                         <li><a href="contact.php">Contact</a></li>
-                        <li><a href="../backend/admin/login.php" class="btn btn-accent">Admin Login</a></li>
+                        <!-- <li><a href="../backend/admin/login.php" class="btn btn-accent">Admin Login</a></li> -->
                     </ul>
                 </nav>
                 <div class="hamburger">
