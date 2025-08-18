@@ -18,8 +18,11 @@
         // 🔹 Ajout du témoignage en BD
         if ($tm->addTestimonial($name, $position, $company, $content, $imageFile, $rating, $active)) {
             $message = "Témoignage envoyé avec succès !";
+            echo "<script>alert('votre Témoignage a bien été enregistré et va subir une vérification'); window.location.href='PrintSideTestimonials.php';</script>";
         } else {
             $message = "Erreur lors de l'envoi du témoignage.";
+            echo "<script>alert('Erreur lors de l'enregistrement de votre temoignage');</script>";
+
         }
 
 
@@ -45,45 +48,7 @@
 
 
 
-        // // Upload du fichier
-        // if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        //     $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-        //     if (in_array($_FILES['image']['type'], $allowedTypes)) {
-        //         $uploadDir = __DIR__ . '/../backend/uploads/testimonials/'; // Dossier d’upload
-        //         if (!is_dir($uploadDir)) {
-        //             mkdir($uploadDir, 0777, true);
-        //         }
-        //         $filename = uniqid() . '_' . basename($_FILES['image']['name']);
-        //         $uploadFile = $uploadDir . $filename;
-        //         if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
-        //             $image_path = $uploadFile;
-        //         } else {
-        //             $message = "Erreur lors de l'upload du fichier.";
-        //         }
-        //     } else {
-        //         $message = "Type de fichier non autorisé.";
-        //     }
-        // }
-
-        // // Insertion en base de données
-        // if (empty($message)) {
-        //     try {
-        //         $query = "INSERT INTO testimonials (name, position, company, content, image_path, rating) 
-        //                 VALUES (:name, :position, :company, :content, :image_path, :rating)";
-        //         $stmt = $pdo->prepare($query);
-        //         $stmt->execute([
-        //             ':name' => $name,
-        //             ':position' => $poste,
-        //             ':company' => $company,
-        //             ':content' => $testimonial,
-        //             ':image_path' => $image_path,
-        //             ':rating' => $rating
-        //         ]);
-        //         $message = "Témoignage envoyé avec succès !";
-        //     } catch (Exception $e) {
-        //         $message = "Erreur lors de l'enregistrement : " . $e->getMessage();
-        //     }
-        // }
+        
     }
 ?>
 
