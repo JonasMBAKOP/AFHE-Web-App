@@ -2,53 +2,29 @@
     include_once __DIR__ . '/../backend/includes/db_connect.php';
     require_once __DIR__ . "/../backend/models/TestimonialModel.php";
     
-    function shanegetTestimonials( $sortField = 'created_at', $sortOrder = 'DESC', $limit = null, $offset = 0) {
-            // Définir les champs autorisés pour le tri
+    // Crée une classe anonyme pour utiliser la méthode executeQuery
+    $shane = new class extends BaseModel {
+        public function shanegetTestimonials($sortField = 'created_at', $sortOrder = 'DESC', $limit = 100, $offset = 0) {
             $allowedSortFields = ['name', 'rating', 'created_at'];
             $allowedSortOrder  = ['ASC', 'DESC'];
-
-            if (!in_array($sortField, $allowedSortFields)) {
-                $sortField = 'created_at';
-            }
-            if (!in_array($sortOrder, $allowedSortOrder)) {
-                $sortOrder = 'DESC';
-            }
-            
-            // Construction de la requête de base
-            $query = "SELECT * FROM testimonials WHERE active=1";
-            $params = [];
-
-            // Application des filtres
-            if (!empty($filters['created_by'])) {
-                $query .= " AND created_by = :created_by";
-                $params[':created_by'] = $filters['created_by'];
-            }
-            if (!empty($filters['display_order'])) {
-                $query .= " AND display_order = :display_order";
-                $params[':display_order'] = $filters['display_order'];
-            }
-            if (!empty($filters['rating'])) {
-                $query .= " AND rating = :rating";
-                $params[':rating'] = $filters['rating'];
-            }
-            if (isset($filters['active']) && $filters['active'] !== '') {
-                $query .= " AND active = :active";
-                $params[':active'] = $filters['active'];
-            }
-
-            // Ajout du tri
-            $query .= " ORDER BY $sortField $sortOrder";
-            
-            // Ajout de la pagination
-            $query .= " LIMIT :limit OFFSET :offset";
-            $params[':limit']  = $limit;
-            $params[':offset'] = $offset;
-            
-            // Exécution de la requête en utilisant la méthode executeQuery() de BaseModel
+            if (!in_array($sortField, $allowedSortFields)) $sortField = 'created_at';
+            if (!in_array($sortOrder, $allowedSortOrder)) $sortOrder = 'DESC';
+            $query = "SELECT * FROM testimonials WHERE active=1 ORDER BY $sortField $sortOrder LIMIT :limit OFFSET :offset";
+            $params = [':limit' => $limit, ':offset' => $offset];
             $stmt = $this->executeQuery($query, $params);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+    };
+    $testimonials = $shane->shanegetTestimonials();
 
+    if(isset($_POST['valider'])) {
+        
+        echo "<script>alert('Témoignage validé avec succès');</script>";
+    }
+    if(isset($_POST['supprimer'])) {
+        
+        echo "<script>alert('Témoignage supprimé correctement');</script>";
+    }
 
 ?>
 <!DOCTYPE html>
@@ -59,9 +35,33 @@
     <title>Approve the testimonial</title>
 </head>
 <body>
-    <table>
-        <th><td>PERSONNE</td><td>poste d'entreprise</td><td>note</td><td>statut</td><td>statut</td><td>créé le</td><td>Actions</td></th>
-        <tr></tr>
+    <form action="ApproveTestimonialPanel.php" method="post" enctype="multipart/form-data">
+        <table>
+        <thead>
+            <tr>
+            <th>Nom</th><th>Poste</th><th>Entreprise</th><th>Témoignage</th><th>Note</th><th>Date de création</th><th>Actions</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <?php
+            foreach ($testimonials as $testimonial) {
+                echo '<tr>';
+                echo '<td>' . htmlspecialchars($testimonial['name']) . '</td>';
+                echo '<td>' . htmlspecialchars($testimonial['position']) . '</td>';
+                echo '<td>' . htmlspecialchars($testimonial['company']) . '</td>';
+                echo '<td>' . htmlspecialchars($testimonial['content']) . '</td>';
+                echo '<td>' . htmlspecialchars($testimonial['rating']) . '</td>';
+                echo '<td>' . htmlspecialchars($testimonial['created_at']) . '</td>';
+                echo '<td></td>';
+                echo '</tr>';
+            }
+            ?>
+            <button id="valider"  name="valider">Valider</button>
+            <button id="supprimer"  name="supprimer">Valider</button>
+        </tbody>
+
     </table>
+    </form>
 </body>
 </html>
