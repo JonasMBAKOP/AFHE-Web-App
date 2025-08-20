@@ -35,6 +35,7 @@
         <link rel="stylesheet" href="assets/css/components.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
         <link rel="stylesheet" href="assets/css/shaneForm.css">
+        <link rel="stylesheet" href="assets/css/modal.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     </head>
     <body>
@@ -239,34 +240,38 @@
             </div>
             <a href="#" class="btn-more">Ajouter votre témoignage</a>
 
-            <div class="new-testimonial" id="newTestimonial">
-                <?php if (!empty($message)): ?>
-                    <p><?= $message ?></p>
-                <?php endif; ?>
+            <!-- Modal pour le formulaire de témoignage -->
+            <div class="modal" id="testimonialModal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <?php if (!empty($message)): ?>
+                        <p class="message"><?= $message ?></p>
+                    <?php endif; ?>
 
-                <form method="post" action="index.php" enctype="multipart/form-data">
-                    <h1>Votre témoignage</h1>
-                    <label for="name">Nom complet</label>
-                    <input type="text" id="name" name="name" required placeholder="Ex: The King Jonas"><br><br>
+                    <form method="post" action="index.php" enctype="multipart/form-data">
+                        <h1>Votre témoignage</h1>
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" required placeholder="Ex: The King Jonas">
 
-                    <label for="company">company</label>
-                    <input type="text" id="company" name="company" required placeholder="Ex: Kings' Empire Tech"><br><br>
+                        <label for="company">Entreprise</label>
+                        <input type="text" id="company" name="company" required placeholder="Ex: Kings' Empire Tech">
 
-                    <label for="position">Poste</label>
-                    <input type="text" id="position" name="position" required placeholder="Ex: Développeur Web et Mobile"><br><br>
-                    
-                    <label for="rating">Note</label>
-                    <input type="number" id="rating" name="rating" min="1" max="5" value="5" required><br><br>
-                    
-                    <label for="content">Témoignage</label><br>
-                    <textarea id="content" name="content" rows="4" cols="50" required placeholder="Décrivez le témoignage..."></textarea><br><br>
-                    
-                    <label for="image">Photo (facultatif):</label><br>
-                    <input type="file" name="image" id="image" accept="image/*" onchange="previewImage()"><br><br>
-                    <img id="preview" src="#" alt="Prévisualisation de l'image" style="display:none; max-width: 200px;"><br><br>
-                    
-                    <input type="submit" name="Envoyer" value="Envoyer">
-                </form>
+                        <label for="position">Poste</label>
+                        <input type="text" id="position" name="position" required placeholder="Ex: Développeur Web et Mobile">
+                        
+                        <label for="rating">Note</label>
+                        <input type="number" id="rating" name="rating" min="1" max="5" value="5" required>
+                        
+                        <label for="content">Témoignage</label>
+                        <textarea id="content" name="content" rows="4" required placeholder="Décrivez le témoignage..."></textarea>
+                        
+                        <label for="image">Photo (facultatif):</label>
+                        <input type="file" name="image" id="image" accept="image/*" onchange="previewImage()">
+                        <img id="preview" src="#" alt="Prévisualisation de l'image" style="display:none;">
+                        
+                        <input type="submit" name="Envoyer" value="Envoyer">
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -280,5 +285,6 @@
         <script src="assets/js/slider.js"></script>
         <script src="assets/js/components.js"></script>
         <script src="assets/js/main.js"></script>
+        <script src="assets/js/modal.js"></script>
     </body>
 </html>

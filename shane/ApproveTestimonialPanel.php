@@ -14,6 +14,7 @@
             $stmt = $this->executeQuery($query, $params);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+        
     };
     $testimonials = $shane->shanegetTestimonials();
 
