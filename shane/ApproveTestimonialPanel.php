@@ -22,9 +22,14 @@
         
         echo "<script>alert('Témoignage validé avec succès');</script>";
     }
+
     if(isset($_POST['supprimer'])) {
         
         echo "<script>alert('Témoignage supprimé correctement');</script>";
+    }
+
+    if (isset($_POST['modifier'])){
+        echo "<script>alert('Nous allons modifier ce témoignage');</script>";
     }
 
 ?>
@@ -54,12 +59,14 @@
                 echo '<td>' . htmlspecialchars($testimonial['content']) . '</td>';
                 echo '<td>' . htmlspecialchars($testimonial['rating']) . '</td>';
                 echo '<td>' . htmlspecialchars($testimonial['created_at']) . '</td>';
-                echo '<td></td>';
+                echo "<td><button id='valider' name='valider' onclick='window.location.href="../backend/admin/testimonials/add.php"';>Valider</button> <br>
+                          <button id="supprimer" name="supprimer" onclick="window.location.href="../backend/admin/testimonials/delete.php;">Supprimer</button><br>
+                          <button id="supprimer" name="modifier" onclick="window.location.href="../backend/admin/testimonials/update.php;">Modifier</button><br>
+                     </td>";
                 echo '</tr>';
             }
             ?>
-            <button id="valider"  name="valider">Valider</button>
-            <button id="supprimer"  name="supprimer">Valider</button>
+            
         </tbody>
 
     </table>

@@ -238,7 +238,7 @@
                     endif;
                 ?>
             </div>
-            <a href="#" class="btn-more">Ajouter votre témoignage</a>
+            <a href="#" class="btn-more" id="addTestimonialBtn">Ajouter votre témoignage</a>
 
             <!-- Modal pour le formulaire de témoignage -->
             <div class="modal" id="testimonialModal">

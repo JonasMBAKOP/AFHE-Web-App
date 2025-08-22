@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Get the modal
     const modal = document.getElementById('testimonialModal');
-    const btn = document.querySelector('.btn-more');
+    const btn = document.getElementById('addTestimonialBtn');
     const closeBtn = document.querySelector('.close-modal');
 
     // When the user clicks on the button, open the modal
